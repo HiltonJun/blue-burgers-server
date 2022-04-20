@@ -57,7 +57,6 @@ const deleteBurgerController = (req, res) => {
   }
 
   burgersService.deleteBurgerService(idParam);
-  res.send({ message: "Burger deletado com sucesso!" });
 };
 
 module.exports = {
