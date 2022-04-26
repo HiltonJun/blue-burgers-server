@@ -1,4 +1,4 @@
-const burgers = [
+/* const burgers = [
   {
     id: 1,
     nome: "Voando Alto",
@@ -23,38 +23,37 @@ const burgers = [
     foto: "/assets/images/marilu-chicken.jpg",
     preco: 27.9,
   },
-];
+]; */
 
-const findBurgersService = () => {
+const Burger = require('../models/Burger');
+
+const findAllBurgersService = async () => {
+  const burgers = await Burger.find();
   return burgers;
 };
 
-const findBurgerByIdService = (id) => {
-  return burgers.find((burger) => burger.id == id);
+const findByIdBurgerService = async (id) => {
+  const burger = await Burger.findById(id);
+  return burger;
 };
 
-const createBurgerService = (newBurger) => {
-  const newId = burgers.length + 1;
-  newBurger.id = newId;
-  burgers.push(newBurger);
-  return newBurger;
+const createBurgerService = async (newBurger) => {
+  const burgerCriada = await Burger.create(newBurger)
+  return burgerCriada;
 };
 
-const updateBurgerService = (id, burgerEdited) => {
-  burgerEdited["id"] = id;
-  const burgerIndex = burgers.findIndex((burger) => burger.id == id);
-  burgers[burgerIndex] = burgerEdited;
-  return burgerEdited;
+const updateBurgerService = async (id, burgerEdited) => {
+  const burgerAtualizado = await Burger.findByIdAndUpdate(id, burgerEdited);
+  return burgerAtualizado;
 };
 
-const deleteBurgerService = (id) => {
-  const burgerIndex = burgers.findIndex((burger) => burger.id == id);
-  return burgers.splice(burgerIndex, 1);
+const deleteBurgerService = async (id) => {
+  return await Burger.findByIdAndDelete(id);
 };
 
 module.exports = {
-  findBurgersService,
-  findBurgerByIdService,
+  findAllBurgersService,
+  findByIdBurgerService,
   createBurgerService,
   updateBurgerService,
   deleteBurgerService,
