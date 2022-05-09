@@ -7,7 +7,7 @@ const PaletaSchema = new mongooose.Schema({
   preco: { type: Number, required: true },
   sabor: { type: String, required: true },
   recheio: { type: String, required: false },
-  possui_recheio: { type: boolean, required: true },
+  possui_recheio: { type: Boolean, required: true },
 });
 
 const Paleta = mongooose.model('paletas', PaletaSchema);
