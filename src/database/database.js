@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 function connectToDatabase() {
   mongoose
-    .connect('mongodb://localhost:27017/burgers-db', {
+    .connect('mongodb+srv://admin:admin123@cluster0.muf47.mongodb.net/paletas-db?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

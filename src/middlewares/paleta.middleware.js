@@ -9,17 +9,19 @@ const validId = (req, res, next) => {
 };
 
 const validObjectBody = (req, res, next) => {
-  const burger = req.body;
+  const paleta = req.body;
   if (
-    !burger ||
-    !burger.nome ||
-    !burger.descricao ||
-    !burger.foto ||
-    !burger.preco
+    !paleta ||
+    !paleta.titulo ||
+    !paleta.descricao ||
+    !paleta.foto ||
+    !paleta.preco ||
+    !paleta.sabor ||
+    !paleta.recheio
   ) {
     return res
       .status(400)
-      .send({ message: 'Envie o todos os campos do burger!' });
+      .send({ message: 'Envie o todos os campos do paleta!' });
   }
   next();
 };
