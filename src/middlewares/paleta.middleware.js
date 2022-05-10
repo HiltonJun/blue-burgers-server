@@ -12,12 +12,9 @@ const validObjectBody = (req, res, next) => {
   const paleta = req.body;
   if (
     !paleta ||
-    !paleta.titulo ||
+    !paleta.nome ||
     !paleta.descricao ||
-    !paleta.foto ||
-    !paleta.preco ||
-    !paleta.sabor ||
-    !paleta.recheio
+    !paleta.foto
   ) {
     return res
       .status(400)
